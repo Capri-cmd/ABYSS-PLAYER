@@ -1,9 +1,12 @@
 {
   "name": "abyss-player",
   "productName": "abyss",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "a tiny old-school music player for the YouTube Music era",
-  "author": "Capri-cmd",
+  "author": {
+    "name": "Capri-cmd",
+    "email": "348024877+Capri-cmd@users.noreply.github.com"
+  },
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -18,7 +21,8 @@
     "start": "electron .",
     "vendor": "node scripts/vendor-python.mjs",
     "dist": "vite build && electron-builder --win nsis",
-    "icon": "python scripts/make-icon.py && python scripts/make-skin-icon.py"
+    "icon": "python scripts/make-icon.py && python scripts/make-skin-icon.py",
+    "dist:linux": "vite build && electron-builder --linux AppImage deb pacman"
   },
   "build": {
     "appId": "app.abyss.player",
@@ -68,6 +72,52 @@
       "uninstallDisplayName": "abyss",
       "installerIcon": "assets/icon.ico",
       "uninstallerIcon": "assets/icon.ico"
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb",
+        "pacman"
+      ],
+      "category": "Audio",
+      "icon": "assets/icon.png",
+      "executableName": "abyss",
+      "synopsis": "a tiny old-school music player for youtube music",
+      "description": "abyss is a small winamp-shaped player for YouTube Music: search, artist pages, synced lyrics, crossfade, skins and offline downloads.",
+      "artifactName": "abyss-${version}-${arch}.${ext}",
+      "desktop": {
+        "entry": {
+          "StartupWMClass": "abyss",
+          "Keywords": "music;player;youtube;winamp;"
+        }
+      }
+    },
+    "deb": {
+      "depends": [
+        "libgtk-3-0",
+        "libnotify4",
+        "libnss3",
+        "libxss1",
+        "libxtst6",
+        "xdg-utils",
+        "libatspi2.0-0",
+        "libuuid1",
+        "libsecret-1-0",
+        "libasound2 | libasound2t64"
+      ]
+    },
+    "pacman": {
+      "depends": [
+        "gtk3",
+        "nss",
+        "libxss",
+        "libxtst",
+        "xdg-utils",
+        "at-spi2-core",
+        "util-linux-libs",
+        "libsecret",
+        "alsa-lib"
+      ]
     }
   },
   "dependencies": {
@@ -86,5 +136,6 @@
     "react-dom": "^19.3.1",
     "@fontsource/vt323": "^5.3.0",
     "@fontsource/silkscreen": "^5.3.0"
-  }
+  },
+  "homepage": "https://github.com/Capri-cmd/ABYSS-PLAYER"
 }

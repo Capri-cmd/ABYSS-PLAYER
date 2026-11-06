@@ -12,9 +12,10 @@ const here = path.dirname(fileURLToPath(import.meta.url));
 // yt-dlp runs on the Python that ships inside abyss (vendor/python, see scripts/vendor-python.mjs),
 // falling back to a system Python when that is missing (e.g. a dev checkout without `npm run vendor`).
 function findPython() {
+  const exe = process.platform === 'win32' ? ['python.exe'] : ['bin', 'python3'];
   const bundled = app.isPackaged
-    ? path.join(process.resourcesPath, 'python', 'python.exe')
-    : path.join(here, '..', 'vendor', 'python', 'python.exe');
+    ? path.join(process.resourcesPath, 'python', ...exe)
+    : path.join(here, '..', 'vendor', 'python', ...exe);
   if (fs.existsSync(bundled)) return bundled;
   return process.platform === 'win32' ? 'python' : 'python3';
 }
