@@ -1,0 +1,8 @@
+node_modules/
+dist/
+release/
+vendor/
+*.log
+.DS_Store
+Thumbs.db
+__pycache__/
