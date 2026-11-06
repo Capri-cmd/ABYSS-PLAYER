@@ -10,9 +10,15 @@
 </p>
 
 <p align="center">
-  <img src="docs/screens/skin-abyss.png" width="300" alt="abyss, default skin">
+  <a href="https://github.com/Capri-cmd/ABYSS-PLAYER/releases"><img src="https://img.shields.io/badge/download-windows-336699?style=flat-square" alt="download for windows"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-336699?style=flat-square" alt="MIT license"></a>
+  <img src="https://img.shields.io/badge/made%20with-electron%20%2B%20react-336699?style=flat-square" alt="made with electron and react">
+</p>
+
+<p align="center">
+  <img src="docs/screens/playing.gif" width="340" alt="abyss playing a song: spectrum bars, scrolling title and synced lyrics">
   &nbsp;&nbsp;
-  <img src="docs/screens/compact.png" width="300" alt="abyss with the playlist folded away">
+  <img src="docs/screens/skins.gif" width="218" alt="abyss cycling through its five skins">
 </p>
 
 ---
@@ -43,6 +49,15 @@ it's small on purpose. it sits in the corner of your screen and plays music. tha
 - **discord status**: shows what you're listening to on your profile while discord is open
 - **folds up**: toggle `PL` (playlist), `LY` (lyrics) and `ART` (art screen). the window shrinks to fit
 - **pin** it on top of other windows, media keys work, `space` plays/pauses, `ctrl + ←/→` skips
+
+## take a tour
+
+search, open an artist, dig through an album, then jump to your top artist from the profile panel.
+the lyrics and the spectrum keep going the whole time.
+
+<p align="center">
+  <img src="docs/screens/tour.gif" width="620" alt="searching daft punk, opening their artist page and an album, then opening nujabes from the profile">
+</p>
 
 ## skins
 
@@ -140,7 +155,17 @@ abyss is a personal, non-commercial project. it isn't affiliated with or endorse
 google or discord. music belongs to the artists: if you love something, buy it, stream it on
 their terms, go to the show.
 
-## license
+## license + credit
 
-[MIT](LICENSE) © 2026 Capri-cmd. use it, fork it, remix it. just keep the copyright notice
-and license with your copy, so the credit stays attached.
+abyss is open source under the [MIT license](LICENSE) © 2026 Capri-cmd.
+
+you're free to use it, fork it, change it, ship your own version, even sell it. the one rule:
+**any copy or fork that uses this code has to keep the copyright notice and the [LICENSE](LICENSE)
+file with it**, so where it came from stays attached.
+
+if you build something on top of abyss, a line like this in your readme or about screen is
+appreciated (not required, just nice):
+
+```
+based on abyss by Capri-cmd — https://github.com/Capri-cmd/ABYSS-PLAYER
+```
