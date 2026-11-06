@@ -84,6 +84,36 @@ saved per skin, so your pink skin can have a different picture than your teal on
 2. run it. windows will probably say *"windows protected your pc"* because the app isn't code-signed yet. click **more info → run anyway**
 3. that's it. python and everything else it needs ships inside the installer
 
+## install (linux)
+
+grab the file for your distro from [releases](https://github.com/Capri-cmd/ABYSS-PLAYER/releases).
+like on windows, everything abyss needs (python, yt-dlp) is already inside.
+
+**kali / debian / ubuntu / mint** (`.deb`)
+
+```bash
+sudo apt install ./abyss-1.0.0-amd64.deb
+```
+
+**arch / manjaro / endeavouros** (`.pacman`)
+
+```bash
+sudo pacman -U abyss-1.0.0-x64.pacman
+```
+
+**any other distro** (`.AppImage`, nothing to install)
+
+```bash
+chmod +x abyss-1.0.0-x86_64.AppImage
+./abyss-1.0.0-x86_64.AppImage
+```
+
+appimages need fuse 2. if it won't start, install it (`sudo pacman -S fuse2` on arch,
+`sudo apt install libfuse2t64` on debian-based) or run it with `--appimage-extract-and-run`.
+
+after installing the `.deb` or `.pacman`, abyss shows up in your app menu under audio, or run `abyss`
+from a terminal. it's x86_64 only for now.
+
 ## signing in (recommended)
 
 you can search, play and download without an account, but youtube is a lot stricter with
@@ -102,7 +132,8 @@ except youtube. it keeps working until you sign out of youtube in that browser.
 
 ## build it yourself
 
-you'll need [node.js](https://nodejs.org) 20+ and [python](https://www.python.org) 3.12 (python is only needed to build, not to run).
+you'll need [node.js](https://nodejs.org) 22+. on windows you also need [python](https://www.python.org) 3.12
+to build (not to run); on linux the build downloads its own.
 
 ```bash
 git clone https://github.com/Capri-cmd/ABYSS-PLAYER.git
@@ -110,8 +141,12 @@ cd ABYSS-PLAYER
 npm install
 npm run vendor     # downloads a private python with the latest yt-dlp into vendor/
 npm run dev        # run it
-npm run dist       # build the windows installer into release/
+npm run dist       # windows: build the installer into release/
+npm run dist:linux # linux: build the .AppImage, .deb and .pacman into release/
 ```
+
+build each one on the os it's for (windows on windows, linux on linux), since `npm run vendor`
+grabs the python for the system you're on.
 
 ### make your own skin
 

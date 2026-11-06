@@ -50,6 +50,7 @@
       "output": "release",
       "buildResources": "assets"
     },
+    "afterPack": "scripts/after-pack.cjs",
     "icon": "assets/icon.png",
     "win": {
       "target": [
